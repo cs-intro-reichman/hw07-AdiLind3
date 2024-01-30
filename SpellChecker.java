@@ -27,13 +27,17 @@ public class SpellChecker {
 		}
 		word1 = word1.toLowerCase();
 		word2 = word2.toLowerCase();
-		if(word1.charAt(0) == word2.charAt(0))
-		{
-			levenshtein(tail(word1), tail(word2));
+		int cost;
+		if (word1.charAt(0) == word2.charAt(0)) {
+			cost = 0;
+		} else {
+			cost = 1;
 		}
-		int temp = Math.min(levenshtein(tail(word1), word2),levenshtein(word1, tail(word2)));
-		int min = Math.min(temp, levenshtein(tail(word1), tail(word2)));
-		return 1+ min;
+		int deleteCost = levenshtein(tail(word1), word2) + 1;
+		int insertCost = levenshtein(word1, tail(word2)) + 1;
+		int substituteCost = levenshtein(tail(word1), tail(word2)) + cost;
+	
+		return Math.min(Math.min(deleteCost, insertCost), substituteCost);
 	}
 
 	public static String[] readDictionary(String fileName) {
