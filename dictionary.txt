@@ -591,7 +591,7 @@ contract
 contrast
 contribute
 contribution
-controol
+control
 controversial
 controversy
 convention
