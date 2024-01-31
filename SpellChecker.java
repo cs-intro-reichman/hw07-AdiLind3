@@ -4,12 +4,12 @@ public class SpellChecker {
 
 	public static void main(String[] args) {
 		String word = args[0];
-		//int threshold = Integer.parseInt(args[1]);
-		String threshold1 = args[1];
+		int threshold = Integer.parseInt(args[1]);
+		//String threshold1 = args[1];
 		String[] dictionary = readDictionary("dictionary.txt");
-		//String correction = spellChecker(word, threshold, dictionary);
-		int correction = levenshtein(word, threshold1);
-		System.out.println("levenshtein level - " + correction);
+		String correction = spellChecker(word, threshold, dictionary);
+		//int correction = levenshtein(word, threshold1);
+		System.out.println(correction);
 	}
 
 	public static String tail(String str) {
