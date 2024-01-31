@@ -70,7 +70,7 @@ public class SpellChecker {
 			
 		}
 
-		if ( tempdis >= threshold) //that means that we dont find a word that fulfill the condition than return the original
+		if ( tempdis > threshold) //that means that we dont find a word that fulfill the condition than return the original
 		{
 			return word;
 		}
